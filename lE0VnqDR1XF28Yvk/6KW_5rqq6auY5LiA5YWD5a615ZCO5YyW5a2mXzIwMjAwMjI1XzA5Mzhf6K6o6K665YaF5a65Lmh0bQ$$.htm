@@ -1,0 +1,145 @@
+<!DOCTYPE html><html>
+<!-- saved from url=(0014)about:internet -->
+<head> 
+	 <meta http-equiv="X-UA-Compatible" content="IE=edge"/> 
+	 <title>西溪高一元宵后化学 2020-02-25 09:38 讨论内容</title>													
+	 <link rel="stylesheet" href="ChatRes/css/style.css">				
+	 <script type="text/javascript">									
+	 function searchShowingImg(start, end,showHgt, srcAry) {			
+		 var middle=Math.floor((start+end)/2);							
+		if (middle<=start||middle>=end){								
+			return middle;												
+		 }																
+		var top = srcAry[middle].getBoundingClientRect().top;			
+		var bottom = srcAry[middle].getBoundingClientRect().bottom;		
+		if((top>-1&&top<showHgt)||(bottom>-1&&bottom<showHgt)||(top<=0&&bottom>=showHgt)){			
+			return middle;												
+		}																
+		if (top>=showHgt) {												
+			return searchShowingImg(start, middle, showHgt, srcAry);	
+		}																
+		if (bottom <=0) {												
+			return searchShowingImg(middle, end, showHgt, srcAry);		
+		}																
+		return -1;														
+	 }																	
+	 function setWidthHeight(){											
+		var anchors = document.getElementsByTagName('img');				
+		var pictotalnum = anchors.length;								
+		if(pictotalnum<0){return;}										
+		var seheight = document.documentElement.clientHeight ;						
+		var selcnum = searchShowingImg(0,pictotalnum-1,seheight,anchors);		
+		if(selcnum>=0&&selcnum<pictotalnum)								
+		{																
+			var jnum=0;													
+			var indexnum=selcnum;										
+			while(jnum<5&&indexnum<pictotalnum)							
+			{															
+				setImgWidthHeight(anchors[indexnum]);					
+				jnum++;													
+				indexnum++;												
+			}															
+			jnum = 0;													
+			indexnum=selcnum-1;											
+			while(jnum<5&&indexnum>=0)									
+			{															
+				setImgWidthHeight(anchors[indexnum]);					
+				jnum++;													
+				indexnum--;												
+			}															
+		}																
+	 }																	
+	 function setImgWidthHeight(id){									
+		var bdWidth = document.documentElement.clientWidth-50-2;						
+		var vsrc = new String(id.getAttribute('src'));					
+		var patten = /(.gif|.GIF)$/;									
+		if((vsrc=="")||(vsrc.search(patten)>-1)||(bdWidth <= 0)){						
+			return;														
+		}																
+		var img = new Image();											
+		img.onload = function(){										
+			if (img.width<bdWidth){											
+				id.width = img.width;										
+				id.height = img.height;										
+			}else{															
+				id.width = bdWidth;											
+				id.height = (bdWidth*img.height)/img.width;					
+			}																
+			var vname = new String(id.getAttribute('name'));				
+			var vd1=document.getElementById(vname+'-d1');				
+			if(vd1){													
+				vd1.style.width=id.width;
+				vd1.style.height=id.height;
+			}
+			var vd2=document.getElementById(vname+'-d2');				
+			if(vd2){													
+				vd2.style.width=id.width;
+				vd2.style.height=id.height;
+			}
+			var vd3=document.getElementById(vname+'-d3');				
+			if(vd3){													
+				vd3.style.width=id.width;
+				vd3.style.height=id.height;
+			}
+			var vd4=document.getElementById(vname+'-d4');				
+			if(vd4){													
+				 vd4.style.width=id.width;
+				vd4.style.height=id.height;
+			}
+		};		
+		img.src = vsrc;													
+	 }																	
+	 function OnloadedImg(id){											
+		 setImgWidthHeight(id);											
+		var ltnode = document.getElementById('parentnode').lastChild;	
+		if(ltnode){														
+			var top = ltnode.getBoundingClientRect().top;				
+			var seeheight = document.documentElement.clientHeight ;				
+			if(top<=seeheight){											
+				ltnode.scrollIntoView(false);							
+			}															
+		}																
+		document.documentElement.scrollLeft  = 0;									
+	 }																	
+	 var scrollpos=0;													
+	 var windowwdt = 0;												
+	 var tTmTask=setTimeout("startTime();",1000);						
+	 function startTime()												
+	 {																	
+		if(windowwdt==document.documentElement.offsetWidth){						
+			if(scrollpos!=document.documentElement.scrollTop)						
+			{															
+				scrollpos = document.documentElement.scrollTop;					
+				setWidthHeight();										
+				document.documentElement.scrollTop  = scrollpos;					
+			}															
+		}else															
+		{																
+			windowwdt=document.documentElement.offsetWidth;						
+		}																
+		tTmTask=setTimeout("startTime();",500);						
+	 }																	
+	 function newmessagehide(){
+		document.getElementById("new_message").style.display = "none";
+	 }
+	 function newmessageshow(){
+		document.getElementById("new_message").style.display = "block";
+	 }
+	 </script>															
+	 <style type="text/css">											
+		span{font-family:Arial;color:#888888;line-height:190%;font-size:12px;}			
+		a{font-family:Arial;color:#888888;text-decoration:none;font-size:12px;}		
+		a:hover{font-family:Arial;color:#1a83bd;font-size:12px;}   
+		a:active{font-family:Arial;color:#1a83bd;font-size:12px;}   
+		a:visited{font-family:Arial;color:#1a83bd;font-size:12px;} 
+		#new_message{position: fixed;right: 2px;bottom: 2px;width:64px;height:36px;padding-left:34px;background: url( ChatImage\bg_xinxiaoxitx.png);line-height: 36px;font-size: 14px;color: #00afff;} 
+		#new_message:hover{font-size: 14px;color: #00afff;} 
+	 </style>	 	
+	 </head> 
+<body class="conversation" style="oncontextmenu="return false;" onresize="setWidthHeight();"	
+	   onkeydown="{if(event.keyCode==116){								
+	   event.keyCode=0;event.returnValue=false;}}"
+	   onscroll="window.external.OnChatScroll()">
+
+<br><a name='public'></a>以下为文字交流 内容<br>
+<div id="100001" rec_type="1"><p class="tip" id="ShowSystemNotify">欢迎<span class="c-blue">方舟</span>进入课堂</p></div><div id="100002" rec_type="1"><p class="tip" id="chat_time"><span style="display: inline-block;">09:13</span></p><div class="message message-orange"><div class="headContainer"><a class="head"><img src="ChatRes\images\helper.png"></a><p class="name"><span class="c-orange">【助教】</span><a href="chat:211455779">助教1</a></p></div><div class="contentContainer"><span class="arrow"></span><div class="content"><a href="chat:4B7B95E2-EA45-4215-A24A-80013DD68A26.png"><img name="4B7B95E2-EA45-4215-A24A-80013DD68A26" width="96" height="69" title="鼠标双击查看原图" style="border: 1px solid rgb(244, 244, 244); border-image: none;" onload="OnloadedImg(this);" alt="鼠标双击查看原图" src="ChatImage\4B7B95E2-EA45-4215-A24A-80013DD68A26.png"></a><br></div></div></div></div><div id="100003" rec_type="1"><p class="tip" id="chat_time"><span style="display: inline-block;">09:17</span></p><div class="message message-orange"><div class="headContainer"><a class="head"><img width="23" height="23" src="ChatRes\images\helper.png"></a><p class="name"><span class="c-orange">【助教】</span><a href="chat:211455779">助教1</a></p></div><div class="contentContainer"><span class="arrow"></span><div class="content"><a href="chat:5F7C39BE-E907-4223-8EFE-B054919A5771.png"><img name="5F7C39BE-E907-4223-8EFE-B054919A5771" width="96" height="69" title="鼠标双击查看原图" style="border: 1px solid rgb(244, 244, 244); border-image: none;" onload="OnloadedImg(this);" alt="鼠标双击查看原图" src="ChatImage\5F7C39BE-E907-4223-8EFE-B054919A5771.png"></a><br></div></div></div></div><div id="100004" rec_type="1"><p class="tip" id="chat_time"><span style="display: inline-block;">09:27</span></p><div class="message message-orange"><div class="headContainer"><a class="head"><img width="23" height="23" src="ChatRes\images\teacher.png"></a><p class="name"><span class="c-orange">【主讲】</span><a href="chat:213474073">高一资深化学</a></p></div><div class="contentContainer"><span class="arrow"></span><div class="content"><a href="chat:862464DA-BB0B-4576-96DB-0C3D45B7EC5D.png"><img name="862464DA-BB0B-4576-96DB-0C3D45B7EC5D" width="96" height="69" title="下载中..." style="border: 1px solid rgb(244, 244, 244); border-image: none;" onload="OnloadedImg(this);" alt="下载中..." src="ChatImage\icon_chat_loading.png"></a><br></div></div></div></div><div id="100005" rec_type="1"><p class="tip" id="chat_time"style="display: none"><span style="display: none;">09:28</span></p><div class="message message-orange"><div class="headContainer"><a class="head"><img width="23" height="23" src="ChatRes\images\teacher.png"></a><p class="name"><span class="c-orange">【主讲】</span><a href="chat:213474073">高一资深化学</a></p></div><div class="contentContainer"><span class="arrow"></span><div class="content"><a href="chat:6E2CCCB9-46B4-42AE-9A84-FF5973FE9425.png"><img name="6E2CCCB9-46B4-42AE-9A84-FF5973FE9425" width="96" height="69" title="点击重新下载" style="border: 1px solid rgb(244, 244, 244); border-image: none;" onload="OnloadedImg(this);" alt="点击重新下载" src="ChatImage\img_error_image.png"></a><br></div></div></div></div><div id="100006" rec_type="1"><p class="tip" id="chat_time"><span style="display: inline-block;">09:30</span></p><div class="message message-orange"><div class="headContainer"><a class="head"><img width="23" height="23" src="ChatRes\images\helper.png"></a><p class="name"><span class="c-orange">【助教】</span><a href="chat:211455779">助教1</a></p></div><div class="contentContainer"><span class="arrow"></span><div class="content"><a href="chat:F7CFE0F1-0783-484A-8B61-9658D62E136B.png"><img name="F7CFE0F1-0783-484A-8B61-9658D62E136B" width="96" height="69" title="鼠标双击查看原图" style="border: 1px solid rgb(244, 244, 244); border-image: none;" onload="OnloadedImg(this);" alt="鼠标双击查看原图" src="ChatImage\F7CFE0F1-0783-484A-8B61-9658D62E136B.png"></a><br></div></div></div></div><div id="100007" rec_type="1"><p class="tip" id="chat_time"><span style="display: inline-block;">09:32</span></p><div class="message message-orange"><div class="headContainer"><a class="head"><img width="23" height="23" src="ChatRes\images\helper.png"></a><p class="name"><span class="c-orange">【助教】</span><a href="chat:211455779">助教1</a></p></div><div class="contentContainer"><span class="arrow"></span><div class="content"><a href="chat:220AC88D-C8C8-4FF9-93CD-FA23D2DA45BA.png"><img name="220AC88D-C8C8-4FF9-93CD-FA23D2DA45BA" width="96" height="69" title="点击重新下载" style="border: 1px solid rgb(244, 244, 244); border-image: none;" onload="OnloadedImg(this);" alt="点击重新下载" src="ChatImage\img_error_image.png"></a><br></div></div></div></div><div id="100008" rec_type="1"><p class="tip" id="chat_time"style="display: none"><span style="display: none;">09:33</span></p><div class="message message-orange"><div class="headContainer"><a class="head"><img width="23" height="23" src="ChatRes\images\helper.png"></a><p class="name"><span class="c-orange">【助教】</span><a href="chat:211455779">助教1</a></p></div><div class="contentContainer"><span class="arrow"></span><div class="content"><a href="chat:670871E6-6ED1-4570-87F9-526DAC0B51F2.png"><img name="670871E6-6ED1-4570-87F9-526DAC0B51F2" width="96" height="69" title="鼠标双击查看原图" style="border: 1px solid rgb(244, 244, 244); border-image: none;" onload="OnloadedImg(this);" alt="鼠标双击查看原图" src="ChatImage\670871E6-6ED1-4570-87F9-526DAC0B51F2.png"></a><br></div></div></div></div></body></html>
